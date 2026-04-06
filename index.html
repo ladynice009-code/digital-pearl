@@ -8,290 +8,124 @@
     <style>
         :root {
             --primary-pink: #ff8fa3;
-            --soft-pink: #ffb7b2;
             --bg-page: #fff5f6;
             --text-color: #5d4037;
-            --white: #ffffff;
         }
 
-        /* تنعيم التمرير */
         html { scroll-behavior: smooth; }
+        body { font-family: 'Cairo', sans-serif; background-color: var(--bg-page); margin: 0; padding: 0; color: var(--text-color); }
 
-        body {
-            font-family: 'Cairo', sans-serif;
-            background-color: var(--bg-page);
-            margin: 0;
-            padding: 0;
-            color: var(--text-color);
-            line-height: 1.6;
-        }
+        header { background: linear-gradient(135deg, #ff8fa3, #ffb7b2); color: white; padding: 60px 20px; text-align: center; border-bottom: 5px solid #ffd1dc; }
+        .container { max-width: 800px; margin: auto; padding: 20px; }
 
-        /* الهيدر (رأس الصفحة) */
-        header {
-            background: linear-gradient(135deg, #ff8fa3, #ffb7b2);
-            color: white;
-            padding: 70px 20px;
-            text-align: center;
-            border-bottom: 5px solid #ffd1dc;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-        }
+        .content-section { background: white; margin: 30px 0; padding: 30px; border-radius: 25px; box-shadow: 0 5px 15px rgba(255,143,163,0.1); border-right: 8px solid var(--primary-pink); }
 
-        header h1 { margin: 0; font-size: 2.5em; }
-        header p { font-size: 1.2em; opacity: 0.9; }
+        .input-field { width: 100%; padding: 12px; margin-top: 8px; border-radius: 12px; border: 2px solid #ffe4e1; font-family: 'Cairo'; box-sizing: border-box; }
+        
+        .question-box { background: #fffafa; padding: 15px; border-radius: 15px; margin-bottom: 15px; border: 1px solid #ffe4e1; }
+        .btn { background: var(--primary-pink); color: white; border: none; padding: 15px 40px; border-radius: 30px; cursor: pointer; font-weight: bold; font-size: 1.1em; width: 100%; }
 
-        .container {
-            max-width: 1000px;
-            margin: auto;
-            padding: 20px;
-        }
-
-        /* شبكة البطاقات التعريفية */
-        .cards-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
-            margin-top: -50px;
+        /* تصميم الشهادة */
+        #certificate-area { display: none; text-align: center; margin-top: 30px; }
+        
+        .cert-container {
             position: relative;
-            z-index: 10;
-        }
-
-        .card {
-            background: var(--white);
-            border-radius: 20px;
-            padding: 30px;
-            text-align: center;
-            box-shadow: 0 10px 25px rgba(255, 143, 163, 0.15);
-            transition: transform 0.3s ease;
-            border: 1px solid #ffe4e1;
-        }
-
-        .card:hover { transform: translateY(-10px); }
-
-        .card h3 { color: var(--primary-pink); margin-top: 15px; }
-
-        /* الأزرار */
-        .btn {
-            display: inline-block;
-            margin-top: 15px;
-            padding: 10px 25px;
-            background-color: var(--primary-pink);
-            color: white;
-            text-decoration: none;
-            border-radius: 25px;
-            font-weight: bold;
-            transition: 0.3s;
-            border: none;
-            cursor: pointer;
-        }
-
-        .btn:hover { background-color: #ff6b81; }
-
-        /* الأقسام التعليمية */
-        .content-section {
-            background: var(--white);
-            margin: 50px 0;
-            padding: 35px;
-            border-radius: 25px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.02);
-            border-right: 10px solid var(--primary-pink);
-            position: relative;
-            z-index: 5;
-        }
-
-        .info-list { list-style: none; padding: 0; }
-        .info-list li { padding: 12px 0; border-bottom: 1px dashed #ffd1dc; }
-        .info-list li::before { content: "🌸 "; }
-
-        /* تنسيق الفورم (التحدي) */
-        .quiz-container {
-            background: #fffafb;
-            border: 2px solid #ffd1dc;
-            padding: 30px;
-            border-radius: 25px;
-        }
-
-        .input-group { margin-bottom: 20px; text-align: right; }
-
-        label { display: block; margin-bottom: 8px; font-weight: bold; }
-
-        /* تعديل الخانات لضمان سهولة الكتابة */
-        .input-field {
             width: 100%;
-            padding: 14px;
-            border-radius: 12px;
-            border: 2px solid #ffe4e1;
-            font-family: 'Cairo', sans-serif;
-            font-size: 16px;
-            box-sizing: border-box;
-            background: white;
-            color: #333;
-            display: block;
-            position: relative;
-            z-index: 20; /* تضمن أن الخانة فوق كل شيء */
-        }
-
-        .input-field:focus {
-            border-color: var(--primary-pink);
-            outline: none;
-            background: #fff;
-        }
-
-        .question-box {
-            background: white;
-            padding: 20px;
-            border-radius: 15px;
-            margin-bottom: 20px;
-            border: 1px solid #ffe4e1;
-        }
-
-        .option { display: block; margin: 10px 0; cursor: pointer; }
-
-        .footer {
-            text-align: center;
+            max-width: 600px;
+            margin: auto;
+            border: 10px double var(--primary-pink);
             padding: 40px;
-            background: var(--primary-pink);
-            color: white;
-            margin-top: 60px;
+            background: white;
+            background-image: radial-gradient(#fff5f6 2px, transparent 2px);
+            background-size: 20px 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
         }
 
-        #success-msg {
-            display: none;
-            background: #e8f5e9;
-            color: #2e7d32;
-            padding: 20px;
-            border-radius: 15px;
-            text-align: center;
-            font-weight: bold;
+        .cert-title { font-size: 28px; color: var(--primary-pink); font-weight: bold; margin-bottom: 10px; }
+        .cert-text { font-size: 18px; margin: 20px 0; }
+        #display-name { 
+            font-size: 35px; 
+            color: #d63384; 
+            font-weight: bold; 
+            text-decoration: underline; 
+            display: block;
+            margin: 20px 0;
+            font-family: 'Cairo';
         }
+        .cert-footer { margin-top: 30px; font-style: italic; color: #888; }
+        .stamp { font-size: 50px; position: absolute; bottom: 20px; left: 20px; opacity: 0.3; transform: rotate(-20deg); }
     </style>
 </head>
 <body>
 
 <header>
     <h1>🌸 مبادرة الجوهرة الرقمية 🌸</h1>
-    <p>تألقي بوعيكِ واحمي بصمتكِ في العالم الرقمي</p>
+    <p>تحدي الوعي والأمان لعام 2026</p>
 </header>
 
 <div class="container">
     
-    <div class="cards-grid">
-        <div class="card">
-            <span style="font-size: 50px;">🛡️</span>
-            <h3>الأمان الرقمي</h3>
-            <p>أسرار حماية حساباتكِ وصوركِ من المتطفلين.</p>
-            <a href="#security" class="btn">اكتشفي الأسرار</a>
+    <section id="quiz-section" class="content-section">
+        <h2 style="text-align: center;">🏆 تحدي الجوهرة الرقمية</h2>
+        <div style="margin-bottom: 20px;">
+            <label>اكتبي اسمكِ الجميل ليظهر في الشهادة:</label>
+            <input type="text" id="girlName" class="input-field" placeholder="اسمكِ الثلاثي..">
         </div>
-        <div class="card">
-            <span style="font-size: 50px;">🎀</span>
-            <h3>رقيّ التعامل</h3>
-            <p>كيف تكونين جوهرة في تعاملاتكِ الإلكترونية؟</p>
-            <a href="#behavior" class="btn">دليل الرقيّ</a>
-        </div>
-        <div class="card">
-            <span style="font-size: 50px;">🏆</span>
-            <h3>تحدي الجوهرة</h3>
-            <p>اختبري ذكاءكِ واحصلي على شهادة تميز.</p>
-            <a href="#contest" class="btn">ابدئي التحدي</a>
-        </div>
-    </div>
 
-    <section id="security" class="content-section">
-        <h2>🛡️ أمانكِ هو قوتكِ</h2>
-        <ul class="info-list">
-            <li>كلمة المرور القوية هي قفل بابكِ الرقمي، لا تشاركيها أبداً.</li>
-            <li>فعّلي خاصية "التحقق بخطوتين" في جميع تطبيقاتكِ (سناب، إنستا، تيك توك).</li>
-            <li>احذري من الروابط الغريبة التي تعد بـ "هدايا" أو "زيادة متابعين".</li>
-        </ul>
+        <div class="question-box">
+            <p><strong>1. هل تشاركين صوركِ الخاصة مع حسابات مجهولة؟</strong></p>
+            <label><input type="radio" name="q1" value="wrong"> نعم، للمتعة.</label><br>
+            <label><input type="radio" name="q1" value="correct" id="q1_correct"> لا، أحمي خصوصيتي وصوري دائماً.</label>
+        </div>
+
+        <div class="question-box">
+            <p><strong>2. ما هو التصرف الصحيح عند تلقي رابط مجهول؟</strong></p>
+            <label><input type="radio" name="q2" value="correct" id="q2_correct"> تجاهل الرابط وعدم الضغط عليه.</label><br>
+            <label><input type="radio" name="q2" value="wrong"> الضغط عليه لمعرفة ما فيه.</label>
+        </div>
+
+        <button onclick="generateCertificate()" class="btn">استخراج الشهادة الآن ✨</button>
     </section>
 
-    <section id="behavior" class="content-section" style="border-right-color: #ffb7b2;">
-        <h2>🎀 إتيكيت التواصل الرقمي</h2>
-        <ul class="info-list">
-            <li>بصمتكِ الرقمية تعبّر عن تربيتكِ، فاجعليها عطراً يفوح بالجمال.</li>
-            <li>احترامي خصوصية صديقاتكِ ولا تنشري صورهن دون إذن صريح.</li>
-            <li>التنمر ليس ذكاءً، كوني السند والقدوة الحسنة في مجموعاتكِ.</li>
-        </ul>
-    </section>
-
-    <section id="contest" class="content-section" style="border-right-color: #ffd1dc;">
-        <div class="quiz-container">
-            <h2 style="text-align: center; color: var(--primary-pink);">🏆 تحدي الجوهرة الرقمية</h2>
-            <p style="text-align: center; margin-bottom: 30px;">أكملي البيانات وأجيبي بذكاء لتصلكِ الشهادة على الإيميل ✨</p>
-            
-            <form id="pearlForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
-                
-                <div class="input-group">
-                    <label>اسمكِ الجميل:</label>
-                    <input type="text" name="اسم_المشاركة" class="input-field" id="name" placeholder="اكتبي اسمكِ الثلاثي.." required>
-                </div>
-
-                <div class="input-group">
-                    <label>بريدكِ الإلكتروني:</label>
-                    <input type="email" name="الإيميل" class="input-field" id="email" placeholder="مثال: name@gmail.com" required>
-                </div>
-
-                <hr style="opacity: 0.1; margin: 30px 0;">
-
-                <div class="question-box">
-                    <p><strong>1. إذا وصلت إليكِ رسالة مجهولة تطلب "كود" وصل لجوالكِ، ماذا تفعلين؟</strong></p>
-                    <label class="option"><input type="radio" name="س1" value="خطأ"> أرسل الكود لمساعدتهم.</label>
-                    <label class="option"><input type="radio" name="س1" value="صح" id="q1_correct"> أتجاهل الرسالة فوراً ولا أرسل أي كود.</label>
-                </div>
-
-                <div class="question-box">
-                    <p><strong>2. ما هي الطريقة الصحيحة للتعامل مع "التنمر الإلكتروني"؟</strong></p>
-                    <label class="option"><input type="radio" name="س2" value="صح" id="q2_correct"> تجاهل، حظر، وإبلاغ شخص راشد نثق به.</label>
-                    <label class="option"><input type="radio" name="س2" value="خطأ"> الرد بقسوة لإيقاف المتنمر.</label>
-                </div>
-
-                <div style="text-align: center; margin-top: 30px;">
-                    <button type="submit" class="btn" style="padding: 15px 50px; font-size: 1.1em; border: none;">إرسال والحصول على الشهادة 💌</button>
-                </div>
-            </form>
-
-            <div id="success-msg">
-                ✨ مذهلة! تم إرسال إجاباتكِ بنجاح. راقبي بريدكِ الإلكتروني للحصول على شهادتكِ قريباً. ✨
-            </div>
+    <section id="certificate-area">
+        <div class="cert-container" id="printable-cert">
+            <div class="cert-title">شهادة تميز وفخر</div>
+            <p class="cert-text">تمنح مبادرة الجوهرة الرقمية هذه الشهادة للجميلة:</p>
+            <span id="display-name"></span>
+            <p class="cert-text">وذلك لاجتيازها تحدي "الأمن السيبراني والمواطنة الرقمية" بنجاح، وإثبات وعيها وحرصها على سلامتها في العالم الافتراضي.</p>
+            <div class="cert-footer">صدرت في: 2026م</div>
+            <div class="stamp">ختم الجوهرة 💎</div>
         </div>
+        <p style="margin-top: 20px; color: #888;">(قومي بتصوير الشاشة للاحتفاظ بشهادتكِ 📸)</p>
+        <button onclick="window.print()" class="btn" style="background: #555; width: auto; margin-top: 10px;">طباعة الشهادة 🖨️</button>
     </section>
-</div>
 
-<div class="footer">
-    &copy; 2026 جميع الحقوق محفوظة - مبادرة الجوهرة الرقمية الآمنة 🌸
 </div>
 
 <script>
-    const pearlForm = document.getElementById('pearlForm');
-    const successMsg = document.getElementById('success-msg');
-
-    pearlForm.onsubmit = async (e) => {
-        e.preventDefault();
-
-        // التحقق من الإجابات أولاً
+    function generateCertificate() {
+        const name = document.getElementById('girlName').value;
         const q1 = document.getElementById('q1_correct').checked;
         const q2 = document.getElementById('q2_correct').checked;
 
-        if (!q1 || !q2) {
-            alert("جميلتي، بعض الإجابات تحتاج لمراجعة.. حاولي مرة أخرى لتكوني جوهرة واعية وتستحقي الشهادة! 💪");
+        if (!name) {
+            alert("لطفاً، اكتبي اسمكِ أولاً ليتم تجهيز الشهادة 🌸");
             return;
         }
 
-        // إرسال البيانات إلى Formspree
-        const formData = new FormData(pearlForm);
-        const response = await fetch(pearlForm.action, {
-            method: 'POST',
-            body: formData,
-            headers: { 'Accept': 'application/json' }
-        });
-
-        if (response.ok) {
-            pearlForm.style.display = "none";
-            successMsg.style.display = "block";
-            window.scrollTo({ top: document.getElementById('contest').offsetTop, behavior: 'smooth' });
-        } else {
-            alert("عذراً، حدث خطأ تقني. تأكدي من وضع رابط Formspree الصحيح في الكود.");
+        if (!q1 || !q2) {
+            alert("إجاباتكِ تحتاج لمراجعة.. حاولي مرة أخرى لتكوني واعية وتستحقي الشهادة! 💪");
+            return;
         }
-    };
+
+        // إظهار الشهادة
+        document.getElementById('quiz-section').style.display = "none";
+        document.getElementById('certificate-area').style.display = "block";
+        document.getElementById('display-name').innerText = name;
+        
+        // التمرير للشهادة
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
 </script>
 
 </body>
