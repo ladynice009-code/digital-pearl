@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مبادرة الجوهرة الرقمية 2026</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-pink: #ff8fa3;
+            --soft-pink: #ffb7b2;
+            --bg-page: #fff5f6;
+            --text-dark: #5d4037;
+            --white: #ffffff;
+        }
+
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Cairo', sans-serif; background-color: var(--bg-page); margin: 0; padding: 0; color: var(--text-dark); line-height: 1.6; }
+
+        header { background: linear-gradient(135deg, #ff8fa3, #ffb7b2); color: white; padding: 60px 20px; text-align: center; border-bottom: 5px solid #ffd1dc; }
+        
+        .container { max-width: 900px; margin: auto; padding: 20px; }
+
+        /* البطاقات العلوية */
+        .cards-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: -40px; }
+        .card { background: white; border-radius: 20px; padding: 25px; text-align: center; box-shadow: 0 10px 20px rgba(255,143,163,0.15); transition: 0.3s; border: 1px solid #ffe4e1; }
+        .card:hover { transform: translateY(-5px); }
+
+        /* الأقسام التعليمية */
+        .content-section { background: white; margin: 40px 0; padding: 30px; border-radius: 25px; box-shadow: 0 5px 15px rgba(0,0,0,0.03); border-right: 10px solid var(--primary-pink); }
+        .info-list { list-style: none; padding: 0; }
+        .info-list li { padding: 10px 0; border-bottom: 1px dashed #ffd1dc; }
+        .info-list li::before { content: "✨ "; color: var(--primary-pink); }
+
+        /* زر التنقل */
+        .btn-nav { display: inline-block; margin-top: 10px; padding: 8px 20px; background: var(--primary-pink); color: white; text-decoration: none; border-radius: 20px; font-weight: bold; font-size: 0.9em; }
+
+        /* قسم التحدي */
+        .quiz-container { background: #fffafb; border: 2px solid #ffd1dc; padding: 30px; border-radius: 30px; margin-top: 50px; }
+        .input-field { width: 100%; padding: 12px; margin: 10px 0 20px 0; border-radius: 12px; border: 2px solid #ffe4e1; font-family: 'Cairo'; box-sizing: border-box; font-size: 16px; }
+        .question-box { background: white; padding: 20px; border-radius: 15px; margin-bottom: 20px; border: 1px solid #ffe4e1; }
+        .option { display: block; margin: 10px 0; cursor: pointer; }
+        .btn-submit { background: linear-gradient(45deg, #ff8fa3, #ffb7b2); color: white; border: none; padding: 15px 50px; border-radius: 30px; cursor: pointer; font-weight: bold; font-size: 1.2em; width: 100%; box-shadow: 0 4px 10px rgba(255,143,163,0.3); }
+
+        /* الشهادة المحدثة */
+        #certificate-area { display: none; text-align: center; margin-top: 40px; padding: 20px; }
+        .cert-border { 
+            max-width: 650px; margin: auto; padding: 50px; background: white; 
+            border: 15px double var(--primary-pink); position: relative;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            background-image: url('https://www.transparenttextures.com/patterns/cubes.png'); 
+        }
+        .cert-title { font-size: 32px; color: var(--primary-pink); font-weight: bold; margin-bottom: 20px; }
+        #display-name { font-size: 40px; color: #d63384; font-weight: bold; margin: 25px 0; display: block; border-bottom: 2px solid #ffd1dc; padding-bottom: 10px; }
+        .cert-footer { margin-top: 40px; font-size: 0.9em; color: #888; display: flex; justify-content: space-between; align-items: center; }
+        .stamp-icon { font-size: 60px; opacity: 0.2; transform: rotate(-15deg); }
+        .custom-footer {
+            background-color: #fce4ec;
+            color: #5d4037;
+            text-align: center;
+            padding: 30px 20px;
+            border-top: 2px solid #f8bbd0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            direction: rtl;
+            margin-top: 40px;
+        }
+        .footer-title {
+            font-weight: bold;
+            color: #d81b60;
+            margin-bottom: 8px;
+            font-size: 1.2rem;
+        }
+        .footer-rights {
+            font-size: 0.9rem;
+            margin: 0;
+            opacity: 0.9;
+        }
+        .footer-credit {
+            font-size: 0.8rem;
+            margin-top: 10px;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>🌸 مبادرة الجوهرة الرقمية 🌸</h1>
+    <p>رحلتكِ نحو عالم رقمي آمن، راقٍ ومتميز</p>
+</header>
+
+<div class="container">
+    <div class="cards-grid">
+        <div class="card">
+            <span style="font-size: 40px;">🛡️</span>
+            <h3>الأمان الرقمي</h3>
+            <p>احمي خصوصيتكِ وصوركِ.</p>
+            <a href="#security" class="btn-nav">اكتشفي الأسرار</a>
+        </div>
+        <div class="card">
+            <span style="font-size: 40px;">🎀</span>
+            <h3>رقيّ التواصل</h3>
+            <p>كوني قدوة في أخلاقكِ.</p>
+            <a href="#behavior" class="btn-nav">دليل الرقيّ</a>
+        </div>
+        <div class="card">
+            <span style="font-size: 40px;">🏆</span>
+            <h3>تحدي التميز</h3>
+            <p>اجتازي الاختبار واحصلي على الشهادة.</p>
+            <a href="#contest" class="btn-nav">ابدئي التحدي</a>
+        </div>
+    </div>
+
+    <section id="security" class="content-section">
+        <h2>🛡️ ركن الأمان الرقمي</h2>
+        <p>أنتِ جوهرة ثمينة، وحمايتكِ تبدأ بوعيكِ:</p>
+        <ul class="info-list">
+            <li>فعّلي "التحقق بخطوتين" فوراً في سناب شات وإنستغرام.</li>
+            <li>لا تضغطي على أي رابط يطلب بياناتكِ الشخصية أو الـ OTP.</li>
+            <li>صوركِ وبياناتكِ أمانة، لا تشاركيها إلا مع من تثقين بهم في الواقع.</li>
+        </ul>
+    </section>
+
+    <section id="behavior" class="content-section" style="border-right-color: #ffb7b2;">
+        <h2>🎀 إتيكيت الجوهرة الرقمية</h2>
+        <p>أخلاقكِ في الواقع هي ذاتها في العالم الافتراضي:</p>
+        <ul class="info-list">
+            <li>اتركي أثراً جميلاً بتعليقاتكِ اللطيفة والإيجابية.</li>
+            <li>احترامي خصوصية غيركِ ولا تنشري صورهن دون استئذان.</li>
+            <li>إذا واجهتِ تنمراً، فالحظر (Block) هو الحل الأذكى، ولا تترددي في إبلاغ أهلكِ.</li>
+        </ul>
+    </section>
+
+    <section id="contest" class="quiz-container">
+        <h2 style="text-align: center; color: var(--primary-pink);">🏆 تحدي الجوهرة الرقمية 🏆</h2>
+        <p style="text-align: center;">أثبتي ذكاءكِ لتنالي شهادة التميز فوراً!</p>
+        
+        <div id="quiz-box">
+            <label>اكتبي اسمكِ الثلاثي ليظهر في الشهادة:</label>
+            <input type="text" id="girlName" class="input-field" placeholder="مثلاً: سارة محمد الفهد">
+
+            <div class="question-box">
+                <p><strong>1. هل من الآمن كتابة كلمة المرور في الملاحظات أو مشاركتها؟</strong></p>
+                <label class="option"><input type="radio" name="q1" value="wrong"> نعم، لكي لا أنساها.</label>
+                <label class="option"><input type="radio" name="q1" value="correct" id="q1_correct"> لا، يجب حفظها في مكان آمن وعدم مشاركتها.</label>
+            </div>
+
+            <div class="question-box">
+                <p><strong>2. ماذا تفعلين إذا وصلكِ رابط "فلتر" جديد من حساب مجهول؟</strong></p>
+                <label class="option"><input type="radio" name="q2" value="correct" id="q2_correct"> أتجاهل الرابط وأقوم بحظر الحساب.</label>
+                <label class="option"><input type="radio" name="q2" value="wrong"> أجربه فوراً لمواكبة الجديد.</label>
+            </div>
+
+            <button onclick="generateCert()" class="btn-submit">الحصول على الشهادة ✨</button>
+        </div>
+
+        <div id="certificate-area">
+            <div class="cert-border">
+                <div class="cert-title">💎 شهادة تميز رقمي 💎</div>
+                <p>بكل فخر، تمنح مبادرة الجوهرة الرقمية هذه الشهادة لـ:</p>
+                <span id="display-name"></span>
+                <p>تقديراً لوعيها وحرصها على الأمن السيبراني والمواطنة الرقمية الإيجابية لعام 2026م.</p>
+                
+                <div class="cert-footer">
+                    <span>التاريخ: أبريل 2026م</span>
+                    <div class="stamp-icon">💎</div>
+                    <span>الختم: جوهرة واعية</span>
+                </div>
+            </div>
+            <p style="margin-top: 20px; color: #888;">(التقطي صورة للشاشة للاحتفاظ بشهادتكِ 📸)</p>
+            <button onclick="window.print()" class="btn-submit" style="background: #666; width: auto; margin-top: 10px;">طباعة الشهادة 🖨️</button>
+            <br>
+            <button onclick="location.reload()" class="btn-nav" style="background: none; color: var(--primary-pink); border: 1px solid var(--primary-pink);">العودة للرئيسية</button>
+        </div>
+    </section>
+</div>
+
+<footer class="custom-footer">
+        <div class="footer-title">مبادرة الجوهرة الرقمية 💎</div>
+        <p class="footer-rights">
+            جميع الحقوق محفوظة © 2026 | نحو مواطنة رقمية آمنة
+        </p>
+        <p class="footer-credit">
+            هذه المبادرة مقدمة من: [سمر الهزاع]
+        </p>
+    </footer>
+
+<script>
+    function generateCert() {
+        const name = document.getElementById('girlName').value;
+        const q1 = document.getElementById('q1_correct').checked;
+        const q2 = document.getElementById('q2_correct').checked;
+
+        if (!name.trim()) {
+            alert("يرجى كتابة اسمكِ أولاً يا جميلة! 🌸");
+            return;
+        }
+
+        if (!q1 || !q2) {
+            alert("إجاباتكِ تحتاج لمراجعة بسيطة.. فكري جيداً لتستحقي الشهادة! 💪✨");
+            return;
+        }
+
+        // إخفاء الأسئلة وإظهار الشهادة
+        document.getElementById('quiz-box').style.display = "none";
+        document.getElementById('certificate-area').style.display = "block";
+        document.getElementById('display-name').innerText = name;
+        
+        // الصعود لأعلى القسم لرؤية الشهادة
+        document.getElementById('contest').scrollIntoView({ behavior: 'smooth' });
+    }
+</script>
+
+</body>
+</html>
