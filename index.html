@@ -54,8 +54,32 @@
         #display-name { font-size: 40px; color: #d63384; font-weight: bold; margin: 25px 0; display: block; border-bottom: 2px solid #ffd1dc; padding-bottom: 10px; }
         .cert-footer { margin-top: 40px; font-size: 0.9em; color: #888; display: flex; justify-content: space-between; align-items: center; }
         .stamp-icon { font-size: 60px; opacity: 0.2; transform: rotate(-15deg); }
-
-        .footer { text-align: center; padding: 40px; background: var(--primary-pink); color: white; margin-top: 60px; }
+        .custom-footer {
+            background-color: #fce4ec;
+            color: #5d4037;
+            text-align: center;
+            padding: 30px 20px;
+            border-top: 2px solid #f8bbd0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            direction: rtl;
+            margin-top: 40px;
+        }
+        .footer-title {
+            font-weight: bold;
+            color: #d81b60;
+            margin-bottom: 8px;
+            font-size: 1.2rem;
+        }
+        .footer-rights {
+            font-size: 0.9rem;
+            margin: 0;
+            opacity: 0.9;
+        }
+        .footer-credit {
+            font-size: 0.8rem;
+            margin-top: 10px;
+            font-style: italic;
+        }
     </style>
 </head>
 <body>
@@ -151,12 +175,15 @@
     </section>
 </div>
 
-<div class="footer">
-    <p>
-        تم التطوير بكل فخر بواسطة: [آسيه الهزاع]
-    </p>
-    &copy; 2026 جميع الحقوق محفوظة - مبادرة الجوهرة الرقمية الآمنة 🌸
-</div>
+<footer class="custom-footer">
+        <div class="footer-title">مبادرة الجوهرة الرقمية 💎</div>
+        <p class="footer-rights">
+            جميع الحقوق محفوظة © 2026 | نحو مواطنة رقمية آمنة
+        </p>
+        <p class="footer-credit">
+            تم التطوير بكل فخر بواسطة: [آسيه الهزاع]
+        </p>
+    </footer>
 
 <script>
     function generateCert() {
